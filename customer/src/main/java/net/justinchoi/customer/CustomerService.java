@@ -10,6 +10,9 @@ public record CustomerService(CustomerRepository customerRepository) {
                 .lastName(request.lastName())
                 .email(request.email())
                 .build();
+        // todo: check if email is valid
+        // todo: check if email is not taken yet
+        // todo: check if customer is fraudster
         customerRepository.save(customer);
     }
 }
