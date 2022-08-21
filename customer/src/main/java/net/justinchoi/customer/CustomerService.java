@@ -14,5 +14,6 @@ public record CustomerService(CustomerRepository customerRepository) {
         // todo: check if email is not taken yet
         // todo: check if customer is fraudster
         customerRepository.save(customer);
+        // todo: send notification
     }
 }
