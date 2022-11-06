@@ -1,11 +1,14 @@
 package com.jcservices.fraud;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
-public record FraudCheckService(FraudCheckHistoryRepository fraudCheckHistoryRepository) {
+@AllArgsConstructor
+public class FraudCheckHistoryService {
+    private final FraudCheckHistoryRepository fraudCheckHistoryRepository;
     public boolean isFraudulentCustomer(Integer customerId) {
         fraudCheckHistoryRepository.save(
                 FraudCheckHistory.builder()
