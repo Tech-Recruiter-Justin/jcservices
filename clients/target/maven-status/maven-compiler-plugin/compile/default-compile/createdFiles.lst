@@ -1,2 +1,5 @@
 net/justinchoi/clients/fraud/FraudClient.class
+net/justinchoi/clients/notification/NotificationRequest.class
+net/justinchoi/clients/notification/NotificationResponse.class
+net/justinchoi/clients/notification/NotificationClient.class
 net/justinchoi/clients/fraud/FraudCheckResponse.class

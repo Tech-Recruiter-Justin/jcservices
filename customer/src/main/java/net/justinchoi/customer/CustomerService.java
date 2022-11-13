@@ -3,6 +3,8 @@ package net.justinchoi.customer;
 import lombok.AllArgsConstructor;
 import net.justinchoi.clients.fraud.FraudCheckResponse;
 import net.justinchoi.clients.fraud.FraudClient;
+import net.justinchoi.clients.notification.NotificationClient;
+import net.justinchoi.clients.notification.NotificationRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
+    private final NotificationClient notificationClient;
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())
@@ -25,6 +28,12 @@ public class CustomerService {
         if (fraudCheckResponse != null && fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("fraudster detected, blocking registration");
         }
-        // todo: send notification
+
+        NotificationRequest notificationRequest = new NotificationRequest(
+                customer.getId(),
+                customer.getEmail(),
+                "Successfully registered!"
+        );
+        notificationClient.sendNotification(notificationRequest);
     }
 }

@@ -13,6 +13,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(indexes = {
+        @Index(name = "idx_fraudcheckhistory_id", columnList = "id")
+})
 public class FraudCheckHistory {
     @Id
     @SequenceGenerator(

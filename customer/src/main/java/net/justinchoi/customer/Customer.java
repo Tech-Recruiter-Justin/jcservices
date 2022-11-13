@@ -12,6 +12,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(indexes = {
+        @Index(name = "idx_customer_id", columnList = "id")
+})
 public class Customer {
 
     @Id
