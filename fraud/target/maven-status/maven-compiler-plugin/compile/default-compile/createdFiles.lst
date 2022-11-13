@@ -1,0 +1,6 @@
+com/jcservices/fraud/FraudApplication.class
+com/jcservices/fraud/FraudCheckHistory.class
+com/jcservices/fraud/FraudCheckHistoryService.class
+com/jcservices/fraud/FraudController.class
+com/jcservices/fraud/FraudCheckHistoryRepository.class
+com/jcservices/fraud/FraudCheckHistory$FraudCheckHistoryBuilder.class

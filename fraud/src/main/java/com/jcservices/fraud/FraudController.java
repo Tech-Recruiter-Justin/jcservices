@@ -2,6 +2,7 @@ package com.jcservices.fraud;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.justinchoi.clients.fraud.FraudCheckResponse;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

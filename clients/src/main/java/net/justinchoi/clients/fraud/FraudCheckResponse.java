@@ -1,4 +1,4 @@
-package com.jcservices.fraud;
+package net.justinchoi.clients.fraud;
 
 public record FraudCheckResponse(Boolean isFraudster) {
 }
