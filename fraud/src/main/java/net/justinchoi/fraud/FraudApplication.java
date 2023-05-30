@@ -1,4 +1,4 @@
-package com.jcservices.fraud;
+package net.justinchoi.fraud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

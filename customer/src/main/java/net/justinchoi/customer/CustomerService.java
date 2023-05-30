@@ -1,6 +1,7 @@
 package net.justinchoi.customer;
 
 import lombok.AllArgsConstructor;
+import net.justinchoi.amqp.RabbitMQMessageProducer;
 import net.justinchoi.clients.fraud.FraudCheckResponse;
 import net.justinchoi.clients.fraud.FraudClient;
 import net.justinchoi.clients.notification.NotificationClient;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
-    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())
@@ -34,6 +35,11 @@ public class CustomerService {
                 customer.getEmail(),
                 "Successfully registered!"
         );
-        notificationClient.sendNotification(notificationRequest);
+
+        rabbitMQMessageProducer.publish(
+                "internal.exchange",
+                "internal.notification.routing-key",
+                notificationRequest
+        );
     }
 }

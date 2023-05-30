@@ -1,4 +1,4 @@
-package com.jcservices.fraud;
+package net.justinchoi.fraud;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

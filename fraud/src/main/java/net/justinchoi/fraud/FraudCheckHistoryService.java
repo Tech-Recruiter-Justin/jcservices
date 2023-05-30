@@ -1,4 +1,4 @@
-package com.jcservices.fraud;
+package net.justinchoi.fraud;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
